@@ -1,10 +1,14 @@
 import React from 'react'
 import './ItemCard.scss'
+import { withRouter } from 'react-router-dom'
 
-export const ItemCard = ({ title, imageUrl, size }) => {
+const ItemCard = ({ title, imageUrl, size, match, history, linkUrl }) => {
 	return (
 		<>
-			<div className={`${size} item-card`}>
+			<div
+				className={`${size} item-card`}
+				onClick={() => history.push(`${match.url}${linkUrl}`)}
+			>
 				<div
 					className="background-image"
 					style={{ backgroundImage: `url(${imageUrl})` }}
@@ -17,3 +21,5 @@ export const ItemCard = ({ title, imageUrl, size }) => {
 		</>
 	)
 }
+
+export default withRouter(ItemCard)

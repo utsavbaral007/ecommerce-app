@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import './directory.scss'
-import { ItemCard } from '../item-card/ItemCard'
+import ItemCard from '../item-card/ItemCard'
 
-export const Directory = () => {
+const Directory = () => {
 	const [items, setItems] = useState([
 		{
 			title: 'hats',
@@ -39,9 +39,11 @@ export const Directory = () => {
 	])
 	return (
 		<div className="homepage-content">
-			{items.map(({ id, imageUrl, title, size }) => (
-				<ItemCard key={id} title={title} imageUrl={imageUrl} size = {size} />
+			{items.map(({ id, ...otherProps }) => (
+				<ItemCard key={id} {...otherProps} />
 			))}
 		</div>
 	)
 }
+
+export default Directory
