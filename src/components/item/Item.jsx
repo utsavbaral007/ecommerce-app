@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import './directory.scss'
+import './item.scss'
 import ItemCard from '../item-card/ItemCard'
 
-const Directory = () => {
+const Item = () => {
 	const [items, setItems] = useState([
 		{
 			title: 'hats',
@@ -46,4 +46,4 @@ const Directory = () => {
 	)
 }
 
-export default Directory
+export default Item

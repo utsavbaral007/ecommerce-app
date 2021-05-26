@@ -1,0 +1,14 @@
+.collection-preview {
+	width: 100%;
+	margin: 1.5rem 0;
+	.title {
+		margin: 15px;
+	}
+	.preview {
+		display: flex;
+		width: 100%;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+	}
+}

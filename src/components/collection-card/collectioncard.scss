@@ -1,0 +1,58 @@
+.collection-card {
+	min-width: 250px;
+	height: 350px;
+	margin: 15px;
+	flex: 1;
+	cursor: pointer;
+	.collection-card-background {
+		height: 95%;
+		background: center, no-repeat;
+		background-size: cover;
+		position: relative;
+		overflow: hidden;
+		.add-to-cart {
+			position: absolute;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			background: linear-gradient(
+				rgba(255, 255, 255, 0.1),
+				rgba(255, 255, 255, 0.1)
+			);
+			align-items: flex-end;
+			visibility: hidden;
+			opacity: 0;
+			transition: visibility, opacity, 0.5s ease-out;
+			button {
+				cursor: pointer;
+				padding: 10px 20px;
+				background-color: white;
+				opacity: 0.9;
+				color: black;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				border: none;
+				margin-bottom: 30px;
+				font-size: 18px;
+				outline: 0;
+				z-index: 1;
+			}
+		}
+	}
+	.item-information {
+		height: 5%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 5px;
+		font-size: 18px;
+	}
+}
+.collection-card:hover {
+	& .add-to-cart {
+		visibility: visible;
+		opacity: 1;
+	}
+}
