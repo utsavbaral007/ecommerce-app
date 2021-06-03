@@ -1,0 +1,20 @@
+.form-input-group {
+	width: 100%;
+	.form-input {
+		width: 100%;
+		margin: 1rem 0;
+		padding: 10px 5px;
+		outline: none;
+		border: none;
+		border-bottom: 1px solid grey;
+		font-weight: bold;
+		font-size: 1rem;
+		letter-spacing: 2px;
+		&::placeholder {
+			letter-spacing: 1px;
+			font-size: 1rem;
+			font-weight: 600;
+			transition: 0.3ms ease all;
+		}
+	}
+}

@@ -1,0 +1,19 @@
+.login-container {
+	margin: 20px 0;
+	width: 380px;
+	.subtext {
+		margin-top: 1rem;
+	}
+	form {
+		margin: 2rem 0;
+		.auth-buttons {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			button {
+				margin: 15px 0;
+			}
+		}
+	}
+}

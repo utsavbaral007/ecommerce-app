@@ -9,7 +9,7 @@ const CollectionCard = ({ imageUrl, name, price }) => {
 				style={{ backgroundImage: `url(${imageUrl})` }}
 			>
 				<div className="add-to-cart">
-					<button onClick={() => console.log('Utsav')}>Add To Cart</button>
+					<button>Add To Cart</button>
 				</div>
 			</div>
 			<div className="item-information">

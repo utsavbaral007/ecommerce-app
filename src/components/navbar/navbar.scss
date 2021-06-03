@@ -1,0 +1,33 @@
+.navbar-container {
+	width: 100%;
+	.navbar-content {
+		padding: 15px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.logo {
+			width: 100px;
+			cursor: pointer;
+			img {
+				width: 100%;
+			}
+		}
+		.navlinks {
+			display: flex;
+			align-items: center;
+			.options {
+				margin: 10px 30px;
+				text-decoration: none;
+				text-transform: uppercase;
+				font-weight: 700;
+				color: black;
+				cursor: pointer;
+			}
+			.options:last-child {
+				display: flex;
+				align-items: center;
+				font-size: 1.5rem;
+			}
+		}
+	}
+}
