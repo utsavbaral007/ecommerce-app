@@ -2,10 +2,14 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { IoMdCart } from 'react-icons/all'
 import { auth } from '../../firebase'
+import { connect } from 'react-redux'
+import { message } from 'antd'
+import CheckoutCard from '../checkout-card/Checkout-card'
+import { toggleCart } from '../../redux/cart/cartAction'
 import Logo from '../../assets/MyLogo.png'
 import './navbar.scss'
 
-const Navbar = ({ history, currentUser }) => {
+const Navbar = ({ history, currentUser, cartItems, toggleCartMenu }) => {
 	return (
 		<div className="navbar-container">
 			<div className="navbar-content">
@@ -20,7 +24,15 @@ const Navbar = ({ history, currentUser }) => {
 						contact
 					</Link>
 					{currentUser ? (
-						<div className="options" onClick={() => auth.signOut()}>
+						<div
+							className="options"
+							onClick={() =>
+								auth
+									.signOut()
+									.then(() => message.success('Logged out successfully'))
+									.catch((e) => message.error(e.message))
+							}
+						>
 							Sign out
 						</div>
 					) : (
@@ -28,13 +40,29 @@ const Navbar = ({ history, currentUser }) => {
 							sign in
 						</Link>
 					)}
-					<Link className="options" to="/mycart">
-						<IoMdCart /> <span>10</span>
-					</Link>
+					<div className="options">
+						<IoMdCart onClick={toggleCartMenu} />
+						<span>{cartItems.length}</span>
+						<CheckoutCard />
+					</div>
 				</div>
 			</div>
 		</div>
 	)
 }
 
-export default withRouter(Navbar)
+const mapStateToProps = (state) => {
+	return {
+		currentUser: state.user.currentUser,
+		cartItems: state.cart.cartItems,
+		cartDropdown: state.cart.hidden,
+	}
+}
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		toggleCartMenu: () => dispatch(toggleCart()),
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Navbar))

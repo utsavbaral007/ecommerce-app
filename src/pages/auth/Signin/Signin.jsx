@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import FormInput from '../../../components/form-input/FormInput'
 import CustomButton from '../../../components/custom-button/CustomButton'
-import { signInWithGoogle } from '../../../firebase'
+import { signInWithGoogle, signInWithEmailAndPassword } from '../../../firebase'
 import './signin.scss'
 
 const Signin = () => {
@@ -10,6 +10,7 @@ const Signin = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
+		signInWithEmailAndPassword(email, password)
 	}
 
 	const handleChange = (e) => {
@@ -24,7 +25,6 @@ const Signin = () => {
 			<p className="subtext">Sign in with your email and password</p>
 			<form onSubmit={handleSubmit}>
 				<FormInput
-					id="email"
 					type="text"
 					name="email"
 					value={email}
@@ -34,7 +34,6 @@ const Signin = () => {
 					required
 				/>
 				<FormInput
-					id="password"
 					type="password"
 					name="password"
 					value={password}
